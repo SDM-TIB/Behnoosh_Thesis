@@ -1,0 +1,24 @@
+@prefix lungCancer: <http://example.org/lungCancer/vocab/> .
+@prefix lungCancerE: <http://example.org/lungCancer/entity/> .
+@prefix lungCancerS: <http://example.org/lungCancer/shapes/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lungCancerS:Patient a sh:NodeShape ;
+       sh:targetClass lungCancer:Patient ; 
+       sh:property [sh:path lungCancer:hasGender ; sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:hasAgeCategory ; sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:hasStage ;  sh:minCount 1; sh:maxCount 1] .
+
+lungCancerS:Protocol1 a sh:NodeShape ;
+       sh:targetClass lungCancer:EGFR_Positive ; 
+       sh:property [sh:path lungCancer:hasNivolumab ; 
+       sh:hasValue lungCancerE:Nivolumab;
+       sh:maxCount 0] .
+
+lungCancerS:Protocol2 a sh:NodeShape ;
+       sh:targetClass lungCancer:EGFR_Negative ; 
+       sh:property [sh:path lungCancer:hasAfatinib ; 
+       sh:hasValue lungCancerE:Afatinib;
+       sh:maxCount 0] .
