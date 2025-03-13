@@ -1,8 +1,8 @@
 {
   "KG": "LungCancer-OriginalKG",
   "prefix": "http://synthetic-LC.org/lungCancer/entity/",
-  "rules_file": "Rules/LungCancer-rules.csv",
-  "rdf_file": "KG/LungCancer-OriginalKG.nt",
-  "constraints_folder": "Constraints/shapes.ttl"
+  "rules_file": "/Users/behnoosh/Desktop/Master_Arbeit/Behnoosh_Thesis/Rules/LungCancer-rules.csv",
+  "rdf_file": "/Users/behnoosh/Desktop/Master_Arbeit/Behnoosh_Thesis/KG/LungCancer-OriginalKG.nt",
+  "constraints_folder": "/Users/behnoosh/Desktop/Master_Arbeit/Behnoosh_Thesis/Constraints/shapes.ttl"
 }
 
