@@ -1,9 +1,9 @@
 {
-  "KG": "LungCancer-OriginalKG",  // Corrected knowledge graph name
+  "KG": "LungCancer-OriginalKG",  
   "prefix": "http://synthetic-LC.org/lungCancer/entity/",
-  "rules_file": "LungCancer-rules.csv",  // Corrected rules file name
+  "rules_file": "LungCancer-rules.csv",  
   "rdf_file": "KG/LungCancer-OriginalKG.nt", 
-  "constraints_folder": "Constraints/shapes.ttl"  // Corrected constraints file path
+  "constraints_folder": "Constraints/shapes.ttl" 
 }
 
 
