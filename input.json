@@ -3,5 +3,6 @@
   "prefix": "http://synthetic-LC.org/lungCancer/entity/",
   "rules_file": "Rules/LungCancer-rules.csv",
   "rdf_file": "KG/LungCancer-OriginalKG.nt",
-  "constraints_folder": "Constraints/shapes"
+  "constraints_folder": "Constraints/shapes.ttl"
 }
+
