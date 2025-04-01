@@ -25,7 +25,8 @@ def compute_pca_metrics():
         # Load rules
         print(f"Loading rules from {rules_path}...")
         df_rules = pd.read_csv(rules_path)
-        required_columns = ['Body', 'Head', 'PCA_Confidence']
+        required_columns = ['Body', 'Head', 'Head_Coverage', 'Std_Confidence', 'PCA_Confidence', 
+                           'Positive_Examples', 'Body_size', 'PCA_Body_size', 'Functional_variable']
         for col in required_columns:
             if col not in df_rules.columns:
                 raise ValueError(f"Rules file must have {col} column")
@@ -96,25 +97,27 @@ def compute_pca_metrics():
             pca_valid = support_valid / denom_valid if denom_valid > 0 else 0
             pca_invalid = support_invalid / denom_invalid if denom_invalid > 0 else 0
 
-            # Collect results
+            # Collect results with all original metrics
             result = {
                 'Body': body,
                 'Head': head,
+                'Head_Coverage': row['Head_Coverage'],
+                'Std_Confidence': row['Std_Confidence'],
                 'PCA_Confidence': pca_confidence,
+                'Positive_Examples': row['Positive_Examples'],
+                'Body_size': row['Body_size'],
+                'PCA_Body_size': row['PCA_Body_size'],
+                'Functional_variable': row['Functional_variable'],
                 'PCA_valid': pca_valid,
-                'PCA_invalid': pca_invalid,
-                'Support_valid': support_valid,
-                'Support_invalid': support_invalid,
-                'Denom_valid': denom_valid,
-                'Denom_invalid': denom_invalid
+                'PCA_invalid': pca_invalid
             }
             results.append(result)
 
         # Convert results to DataFrame and save
         results_df = pd.DataFrame(results)
-        output_path = 'pca_metrics.csv'
+        output_path = 'pca_metrics_with_all.csv'
         results_df.to_csv(output_path, index=False)
-        print(f"Saved PCA metrics to {output_path}")
+        print(f"Saved PCA metrics with all columns to {output_path}")
 
     except FileNotFoundError as e:
         print(f"Error: {e}")
