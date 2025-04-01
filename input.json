@@ -2,7 +2,7 @@
   "KG": "Updated-LungCancer-OriginalKG",
   "prefix": "http://synthetic-LC.org/lungCancer/entity/",
   "rules_file": "./Rules/LungCancer-rules.csv",
-  "rdf_file": "./KG/Updated-LungCancer-OriginalKG.nt",
+  "rdf_file": "LungCancer-OriginalKG.nt",
   "constraints_file": "./Constraint/shapes.ttl",
   "constraints_folder": "./Constraint"
 }
