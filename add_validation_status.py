@@ -1,97 +1,126 @@
 import json
 import os
-import logging
-import traceback
 from rdflib import Graph, Namespace, URIRef, Literal
 from validation import travshacl
 
-# Set up logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
 EX = Namespace("http://example.org/lungCancer/entity/")
 
+def convert_sets_to_lists(obj):
+    """Recursively convert sets to lists for JSON serialization."""
+    if isinstance(obj, set):
+        return list(obj)
+    elif isinstance(obj, dict):
+        return {key: convert_sets_to_lists(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_sets_to_lists(item) for item in obj]
+    return obj
+
 def add_validation_status():
-    try:
-        # Read input.json
-        with open('input.json', 'r') as f:
-            config = json.load(f)
-        
-        kg_name = config['KG']  # "LungCancer-OriginalKG"
-        rdf_file = config['rdf_file']  # "LC_Enriched_KG.nt"
-        constraints_folder = config['constraints_folder']  # "Constraint"
+    # Load input.json config
+    with open('input.json', 'r') as f:
+        config = json.load(f)
 
-        # Load the KG
-        kg_path = os.path.join('KG', kg_name, rdf_file)
-        if not os.path.exists(kg_path):
-            raise FileNotFoundError(f"KG file not found at {kg_path}")
-        
-        print(f"Loading KG from {kg_path}...")
-        kg_graph = Graph()
-        kg_graph.parse(kg_path, format='nt')
-        print(f"Loaded {len(kg_graph)} triples.")
+    kg_name = config['KG']  # LC_Enriched_KG
+    rdf_file = config['rdf_file']  # LC_Enriched_KG.nt
+    constraints_folder = config['constraints_folder']  # Constraint
 
-        # Validate using travshacl
-        constraints_dir = os.path.join('Constraints', constraints_folder)
-        if not os.path.exists(constraints_dir):
-            raise FileNotFoundError(f"Constraints directory not found at {constraints_dir}")
-        
-        print(f"Validating KG with constraints from {constraints_dir}...")
-        try:
-            result = travshacl(kg_graph, constraints_dir, kg_name)
-            print(f"Validation completed, result saved. Check {constraints_dir}/result_{kg_name} for report.")
-        except Exception as e:
-            print(f"Error in travshacl: {e}")
-            traceback.print_exc()
-            raise
+    kg_path = os.path.join('KG', kg_name, rdf_file)
+    constraints_path = os.path.join('Constraints', constraints_folder)
 
-        # Process Trav-SHACL result to identify invalid patients
-        invalid_patients = set()
-        if isinstance(result, dict):
-            for shape, data in result.items():
-                if shape != 'unbound':
-                    for instance in data['invalid_instances']:
-                        _, patient_uri, _ = instance
-                        invalid_patients.add(patient_uri)
-            print(f"Found {len(invalid_patients)} invalid patients.")
+    # Load original KG
+    g = Graph()
+    g.parse(kg_path, format='nt')
+    print(f"Loaded {len(g)} triples from original KG.")
+
+    # Count total patients
+    query = "SELECT (COUNT(DISTINCT ?patient) AS ?count) WHERE { ?patient a ex:Patient . }"
+    result = g.query(query, initNs={'ex': EX})
+    for row in result:
+        print(f"Total patients in KG: {row[0]}")
+
+    # Run SHACL validation
+    result = travshacl(g, constraints_path, kg_name)
+    print(f"Validation result: {json.dumps(convert_sets_to_lists(result), indent=2)}")
+
+    # Identify invalid and valid patients
+    invalid_uris = set()
+    valid_uris = set()
+    for shape_result in result.values():
+        for triple in shape_result.get('invalid_instances', []):
+            _, uri, _ = triple
+            invalid_uris.add(str(uri))
+        for triple in shape_result.get('valid_instances', []):  # If travshacl provides valid instances
+            _, uri, _ = triple
+            valid_uris.add(str(uri))
+
+    total_evaluated = len(valid_uris | invalid_uris)
+    print(f"Total patients validated by travshacl: {total_evaluated}")
+    print(f"Valid patients identified: {len(valid_uris)}")
+    print(f"Invalid patients identified: {len(invalid_uris)}")
+
+    # Check for unevaluated patients
+    query = "SELECT DISTINCT ?patient WHERE { ?patient a ex:Patient . }"
+    patients = g.query(query, initNs={'ex': EX})
+    patient_uris = {str(row[0]) for row in patients}
+    unevaluated_uris = patient_uris - (valid_uris | invalid_uris)
+    print(f"Unevaluated patients: {len(unevaluated_uris)}")
+
+    # Create new graph including validation status
+    enriched = Graph()
+    for triple in g:
+        enriched.add(triple)
+
+    # Add validation status per patient
+    for uri in patient_uris:
+        if uri in invalid_uris:
+            status = "invalid"
+        elif uri in valid_uris:
+            status = "valid"
         else:
-            print("Unexpected result format from travshacl:", type(result))
-            raise ValueError("Trav-SHACL result is not a dictionary")
+            status = "not_evaluated"
+        enriched.add((URIRef(uri), EX.hasValidationStatus, Literal(status)))
 
-        # Get all patients
-        patient_query = """
-        SELECT ?patient WHERE {
-            ?patient a ex:Patient .
-        }
-        """
-        patients = list(kg_graph.query(patient_query, initNs={'ex': EX}))
-        print(f"Total patients: {len(patients)}")
+    # Save updated KG
+    output_path = os.path.join('KG', kg_name, f"{kg_name}_with_status.nt")
+    enriched.serialize(destination=output_path, format='nt')
+    print(f"Validation status added. Saved to: {output_path}")
 
-        # Add validation status based on Trav-SHACL result
-        status_predicate = EX.hasValidationStatus
-        for patient in patients:
-            patient_uri = patient[0]
-            status = "invalid" if str(patient_uri) in invalid_patients else "valid"
-            kg_graph.add((patient_uri, status_predicate, Literal(status)))
+    # Verify counts in enriched KG
+    enriched_query_valid = """
+    SELECT (COUNT(DISTINCT ?patient) AS ?valid_count)
+    WHERE { ?patient a ex:Patient ; ex:hasValidationStatus "valid" . }
+    """
+    result = enriched.query(enriched_query_valid, initNs={'ex': EX})
+    for row in result:
+        print(f"Valid patients in enriched KG: {row[0]}")
 
-        # Save updated KG
-        output_path = os.path.join('KG', kg_name, f"{kg_name}_with_status.nt")
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        kg_graph.serialize(destination=output_path, format='nt')
-        print(f"Saved updated KG with validation status to {output_path}")
+    enriched_query_invalid = """
+    SELECT (COUNT(DISTINCT ?patient) AS ?invalid_count)
+    WHERE { ?patient a ex:Patient ; ex:hasValidationStatus "invalid" . }
+    """
+    result = enriched.query(enriched_query_invalid, initNs={'ex': EX})
+    for row in result:
+        print(f"Invalid patients in enriched KG: {row[0]}")
 
-        # Verify counts in the updated KG
-        valid_count = len(list(kg_graph.subjects(status_predicate, Literal("valid"))))
-        invalid_count = len(list(kg_graph.subjects(status_predicate, Literal("invalid"))))
-        print(f"Valid patients in updated KG: {valid_count}")
-        print(f"Invalid patients in updated KG: {invalid_count}")
+    enriched_query_notevaluated = """
+    SELECT (COUNT(DISTINCT ?patient) AS ?notevaluated_count)
+    WHERE { ?patient a ex:Patient ; ex:hasValidationStatus "not_evaluated" . }
+    """
+    result = enriched.query(enriched_query_notevaluated, initNs={'ex': EX})
+    for row in result:
+        print(f"Not evaluated patients in enriched KG: {row[0]}")
 
-    except FileNotFoundError as e:
-        print(f"Error: {e}")
-        raise
-    except Exception as e:
-        print(f"Error during validation: {e}")
-        traceback.print_exc()
-        raise
+    # Check for non-patient entities with validation status
+    non_patient_query = """
+    SELECT (COUNT(DISTINCT ?entity) AS ?count)
+    WHERE {
+        ?entity ex:hasValidationStatus ?status .
+        FILTER NOT EXISTS { ?entity a ex:Patient . }
+    }
+    """
+    result = enriched.query(non_patient_query, initNs={'ex': EX})
+    for row in result:
+        print(f"Non-patient entities with validation status: {row[0]}")
 
 if __name__ == '__main__':
     add_validation_status()
