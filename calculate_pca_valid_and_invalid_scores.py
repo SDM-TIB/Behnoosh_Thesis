@@ -4,9 +4,6 @@ import re
 import pandas as pd
 from rdflib import Graph, Namespace
 
-# --------------------------------------------------------------------------- #
-#  Helpers                                                                    #
-# --------------------------------------------------------------------------- #
 def get_all_variables(pattern: str):
     return set(re.findall(r"\?\w+", pattern))
 
