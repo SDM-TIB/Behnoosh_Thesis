@@ -1,0 +1,19 @@
+LungCancer Original KG,,,,,,,,,,,,
+,,,,,,,,,,,,
+Model,Hits@1,Hits@3,Hits@5,Hits@10,MRR,,,,,,,
+TransE,0.34,0.66,0.8,0.92,0.53,,,,,,,
+TransH,0.39,0.61,0.7,0.8,0.52,,,,,,,
+TransD,0.05,0.32,0.45,0.69,0.25,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+LungCancer Transformed KG (PCA_valid >= 0.75),,,,,,,,,,,,
+,,,,,,,,,,,,
+Model,Hits@1,Hits@3,Hits@5,Hits@10,MRR,,LungCancer Transformed KG (PCA_invalid>=0.75),,,,,
+TransE,0.8,0.97,0.99,0.99,0.89,,,,,,,
+TransH,0.9,0.91,0.92,0.94,0.91,,Model,Hits@1,Hits@3,Hits@5,Hits@10,MRR
+TransD,0.14,0.62,0.74,0.88,0.41,,TransE,0.76,0.95,0.98,0.99,0.86
+,,,,,,,TransH,0.94,0.95,0.95,0.96,0.95
+,,,,,,,TransD,0.14,0.56,0.71,0.83,0.39
+,,,,,,,,,,,,
+,,,,,,,,,,,,

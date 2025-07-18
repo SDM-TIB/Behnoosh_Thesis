@@ -1,0 +1,26 @@
+{
+  "input": {
+    "kg_folder": ".",
+    "kg_name": "LC",
+    "kg_subfolder": "KG/{kg_name}",
+    "kg_filename": "LC.nt",
+    "kg_format": "nt",
+    "validation_report_path": "Constraints/{kg_name}/result_{kg_name}/validationReport.ttl",
+    "rules_path": "Rules/LC.csv"
+  },
+  "output": {
+    "output_folder": "output/{kg_name}/",
+    "output_filename": "{kg_name}_with_validation",
+    "output_format": "same_as_input"
+  },
+  "pca_settings": {
+    "validation_predicate": "http://validation.org/hasValidationStatus",
+    "valid_values": ["valid"],
+    "invalid_values": ["invalid"],
+    "namespaces": {
+      "ex": "http://example.org/lungCancer/entity/"
+    },
+    "default_namespace": "http://example.org/lungCancer/entity/"
+  }
+}
+

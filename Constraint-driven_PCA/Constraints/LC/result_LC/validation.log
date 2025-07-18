@@ -1,0 +1,707 @@
+Node order: ['<http://example.org/lungCancer/shapes/Protocol1>', '<http://example.org/lungCancer/shapes/Protocol10>', '<http://example.org/lungCancer/shapes/Protocol11>', '<http://example.org/lungCancer/shapes/Protocol12>', '<http://example.org/lungCancer/shapes/Protocol13>', '<http://example.org/lungCancer/shapes/Protocol14>', '<http://example.org/lungCancer/shapes/Protocol15>', '<http://example.org/lungCancer/shapes/Protocol16>', '<http://example.org/lungCancer/shapes/Protocol17>', '<http://example.org/lungCancer/shapes/Protocol18>', '<http://example.org/lungCancer/shapes/Protocol19>', '<http://example.org/lungCancer/shapes/Protocol2>', '<http://example.org/lungCancer/shapes/Protocol20>', '<http://example.org/lungCancer/shapes/Protocol21>', '<http://example.org/lungCancer/shapes/Protocol22>', '<http://example.org/lungCancer/shapes/Protocol23>', '<http://example.org/lungCancer/shapes/Protocol24>', '<http://example.org/lungCancer/shapes/Protocol25>', '<http://example.org/lungCancer/shapes/Protocol3>', '<http://example.org/lungCancer/shapes/Protocol4>', '<http://example.org/lungCancer/shapes/Protocol5>', '<http://example.org/lungCancer/shapes/Protocol6>', '<http://example.org/lungCancer/shapes/Protocol7>', '<http://example.org/lungCancer/shapes/Protocol8>', '<http://example.org/lungCancer/shapes/Protocol9>']
+
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol1>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.998046875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol1_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1177.973876953125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol1>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol10>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.987548828125 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol10_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1135.94775390625 ms
+
+Number of solution mappings: 22
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol10>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol11>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.997802734375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol11_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Nivolumab> .}
+    }
+
+elapsed: 1216.966064453125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol11>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol12>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.998779296875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol12_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Carboplatin> .}
+    }
+
+elapsed: 1071.956787109375 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol12>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol13>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.998046875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol13_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/Unknown> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1088.992431640625 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol13>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol14>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.996826171875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol14_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Carboplatin> .}
+    }
+
+elapsed: 1123.96533203125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol14>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol15>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.99951171875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol15_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1083.975830078125 ms
+
+Number of solution mappings: 22
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol15>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol16>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.988525390625 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol16_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Vinorelbine> .}
+    }
+
+elapsed: 1163.976806640625 ms
+
+Number of solution mappings: 44
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol16>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol17>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 3.9970703125 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol17_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Vinorelbine> .}
+    }
+
+elapsed: 1101.68408203125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol17>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol18>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 3.991943359375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol18_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/Unknown> .
+        FILTER EXISTS {
+          $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Carboplatin> .}
+    }
+
+elapsed: 1106.961669921875 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol18>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol19>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 5.0009765625 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol19_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/Unknown> .
+        FILTER EXISTS {
+          $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Carboplatin> .}
+    }
+
+elapsed: 1170.478271484375 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol19>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol2>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 7.00390625 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol2_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Cisplatin> .}
+    }
+
+elapsed: 1211.956298828125 ms
+
+Number of solution mappings: 11
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol2>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol20>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.9990234375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol20_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Vinorelbine> .}
+    }
+
+elapsed: 1122.468017578125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol20>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol21>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.99951171875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol21_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Cisplatin> .}
+    }
+
+elapsed: 1186.966064453125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol21>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol22>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.99755859375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol22_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Cisplatin> .}
+    }
+
+elapsed: 1644.213623046875 ms
+
+Number of solution mappings: 55
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol22>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol23>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 6.144775390625 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol23_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Vinorelbine> .}
+    }
+
+elapsed: 1652.788818359375 ms
+
+Number of solution mappings: 11
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol23>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol24>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 5.02099609375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol24_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Cisplatin> .}
+    }
+
+elapsed: 1472.12060546875 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol24>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol25>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 7.995849609375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol25_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/Unknown> .
+        FILTER EXISTS {
+           $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Cisplatin> .}
+    }
+
+elapsed: 1460.074951171875 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol25>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol3>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.9365234375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol3_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1393.934326171875 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol3>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol4>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 7.989501953125 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol4_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Nivolumab> .}
+    }
+
+elapsed: 1923.060546875 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol4>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol5>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 8.000732421875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol5_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Nivolumab> .}
+    }
+
+elapsed: 1266.14892578125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol5>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol6>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.99951171875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol6_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/EGFR_Positive> .
+        FILTER EXISTS {
+          $this    <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Carboplatin> .}
+    }
+
+elapsed: 1367.959228515625 ms
+
+Number of solution mappings: 110
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol6>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol7>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.997802734375 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol7_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/Unknown> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Nivolumab> .}
+    }
+
+elapsed: 1273.931396484375 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol7>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol8>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.998779296875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol8_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ALK_Positive> .
+        FILTER EXISTS {
+            $this  <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Vinorelbine> .}
+    }
+
+elapsed: 1150.616455078125 ms
+
+Number of solution mappings: 11
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol8>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+>>>>>
+Retrieving (next) targets ...
+Evaluating target query for <http://example.org/lungCancer/shapes/Protocol9>:
+
+SELECT ?x WHERE { ?x a <http://example.org/lungCancer/entity/Patient> }
+elapsed: 4.977294921875 ms
+
+Number of targets retrieved: 319
+
+Evaluating query for http://example.org/lungCancer/shapes/Protocol9_d1_c1:
+
+    SELECT ($this AS ?this) WHERE {
+        $this <http://example.org/lungCancer/entity/hasBiomarker> <http://example.org/lungCancer/entity/ROS1_Positive> .
+        FILTER EXISTS {
+           $this   <http://example.org/lungCancer/entity/patientDrug> <http://example.org/lungCancer/entity/Afatinib> .}
+    }
+
+elapsed: 1206.00048828125 ms
+
+Number of solution mappings: 0
+
+
+>>>>> Starting validation of shape: <http://example.org/lungCancer/shapes/Protocol9>
+Starting saturation ...
+saturation ...
+elapsed: 0.0 ms
+Remaining targets: 0
+
+Maximal number or rules in memory: 0
+Total number of rules: 0
+Valid targets: 7689
+Invalid targets: 286
