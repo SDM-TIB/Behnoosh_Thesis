@@ -1,7 +1,0 @@
-{
-  "prefix": "http://example.org/lungCancer/entity/",
-    "KG": "LC_Enriched_KG",
-    "rdf_file": "LC_Enriched_KG_with_status.nt",
-    "constraints_folder": "Constraint",
-    "rules_file": "LungCancer-rules-short.csv"
-  }
